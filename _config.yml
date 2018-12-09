@@ -1,0 +1,29 @@
+# Dependencies
+highlighter:       rouge
+
+redcarpet:
+  extensions:
+      - lax_spacing
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            The Colorado Family Farm
+tagline:          'Family Farm'
+description:      'The Colorado Family Farm'
+url:              http://thecoloradofamilyfarm.com/
+
+author:
+  name:           'webmaster'
+  url:            http://thecoloradofamilyfarm.com/
+
+paginate:         5
+
+exclude:          [ '_drafts/NOTES' ]
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/coloradofamilyfarm/website

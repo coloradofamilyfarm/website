@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    width: 100%;
+
+    background-image: url("painting.jpg");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;  
+    color: white;
+}
+
+body div#content {
+    padding: 0px 30px 0px 30px;
+    margin: 0;
+    display: inline-block;
+}
+
+div#content h1,h2,h3 {
+    font-family: sans-serif;
+    text-align: center;
+    margin: .25em;
+    text-shadow: 0.05em 0.05em #000000;
+}
+
+div#center-text {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+
+    padding: 1em;
+    border-radius: 2em;
+
+    background: rgba(0,0,0,0.5);
+}
