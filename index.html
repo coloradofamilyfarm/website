@@ -8,7 +8,7 @@ title: Home
 <h3>Locally Owned, Locally Produced Solar Energy</h3>
 <h3>Focusing on Research, Education, Pollinators &amp; Art</h3>
 
-<div id="center-text" style="font-size: 110%">
+<div class="center-text" style="font-size: 110%">
   <p>We are excited to announce our plans to build a community solar
     garden in Boulder County. Our vision is to farm more than just
     solar energy – we’re also continuing the legacy my grandfather
@@ -27,3 +27,83 @@ title: Home
   <p style="text-align: right">Byron Kominek<br>
     The Colorado Family Farm</p>
 </div>
+
+<div>
+  &nbsp;
+</div>
+
+<div id='form' class="center-text">
+</div>
+
+<div>
+  &nbsp;
+</div>
+
+<script>
+ submitted = false;
+ var MailForm = {
+     view: function() {
+	 var name_input =
+	     m('input',
+               {type:"text",
+                placeholder:"Your Name",
+                name:"name"});
+	 var email_input =
+	     m('input',
+               {type:"email",
+                placeholder:"Your Email address",
+                name:"email"});
+	 var message_input =
+	     m('textarea',
+               {rows:4,
+                placeholder:"Anything else you'd like to tell us",
+                name:"message"});
+	 
+	 var onclick = function() {
+	     var data = {name: name_input.dom.value,
+			 email: email_input.dom.value,
+			 message: message_input.dom.value,
+			 submitted: (new Date()).toISOString()
+	     };
+	     console.log(data);
+
+	     m.request({
+		 method: "POST",
+		 url: "https://formfor.site/send/thRrOgDP1c20kyo0FvznwpaSc44Lbl",
+		 data: data,
+		 deserialize: function(value) {return value}
+	     }).then(function(v) {
+		 submitted = true;
+		 console.log(v);
+	     }).catch(function(e) {
+		 console.log("error %o", e);
+	     });
+	 };
+
+	 var b = m('button', {onclick: onclick}, 'Submit');
+	 var t = m('table', [
+	     m('tr',
+	       m('td', 'Name'),
+	       m('td', name_input)),
+	     m('tr',
+	       m('td', 'Email'),
+	       m('td', email_input)),
+	     m('tr',
+	       m('td', 'Message'),
+	       m('td', message_input)),
+	     m('tr',
+	       m('td', ''),
+	       b)
+	 ]);
+
+	 if(submitted) {
+	     return m('div', "Thank you, we'll keep you informed of any updates.");
+	 } else {
+	     return t;
+	 }
+     }
+ };
+ document.addEventListener("DOMContentLoaded", function() {
+     m.mount(document.getElementById("form"), MailForm);
+ });
+</script>
